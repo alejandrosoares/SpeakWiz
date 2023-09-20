@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap");
+
+.PageLogo-Image {
+  max-width: 40px;
+  height: auto;
+}
+
+.PageLogo-Title {
+  font-family: "Edu SA Beginner", cursive;
+  font-size: 1.5rem;
+}

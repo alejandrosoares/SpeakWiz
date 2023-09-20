@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap");
+
+.Welcome {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: var(--dark);
+}
+
+.Welcome h1 {
+  font-family: "Edu SA Beginner", cursive;
+  font-size: 3rem;
+}
+
+.Welcome h2 {
+  font-size: 2rem;
+}
+
+.Welcome-Image {
+  max-width: 800px; 
+}

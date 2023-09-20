@@ -1,0 +1,48 @@
+.Form {
+    border: 1px solid var(--border-div);
+    max-width: 600px !important;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.Form-Title {
+    margin: 6px;
+}
+
+.Form-Title h1 {
+    text-align: center;
+}
+
+.Form-Label {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Form-Label > input {
+    width: 100%;
+    line-height: 28px;
+    margin: 12px auto;
+    border: none;
+    border-bottom: 1px solid var(--border-div);
+}
+
+.Form-Input:focus {
+    outline: none;
+    border-bottom: 1px solid var(--border-input-focus);
+}
+
+.Form-Btn {
+    min-width: 120px;
+    margin: 12px auto;
+}
+
+.Form-Remember {
+    display: inline-block;
+    width: 22px !important;
+    display: inline;
+}

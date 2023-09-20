@@ -1,0 +1,38 @@
+.TopicSearch {
+  padding: 12px 22px;
+  justify-content: center;
+}
+
+.TopicSearch > div {
+  position: relative;
+}
+
+.TopicSearch input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--border-div);
+  display: inline;
+  line-height: 30px;
+}
+
+.TopicSearch input:focus {
+  outline-style: none;
+  border-bottom: 1px solid var(--border-input-focus);
+}
+
+.TopicSearchBtn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0;
+  right: 8px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TopicSearchBtn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}

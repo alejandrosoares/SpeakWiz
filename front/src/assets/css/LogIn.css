@@ -1,0 +1,5 @@
+.LogIn {
+    background-color: var(--red);
+    max-width: 600px !important;
+    border-radius: 10px;
+}

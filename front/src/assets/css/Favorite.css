@@ -1,0 +1,22 @@
+.Favorite {
+    position: absolute;
+    top: 12px;
+    right: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 2rem;
+    z-index: 10;
+}
+
+
+.Favorite-Icon--active {
+    color: var(--blue);
+}
+
+@media only screen and (min-width: 1500px) {
+    .Favorite {
+        top: 24px;
+        right: 64px !important;
+    }
+  }

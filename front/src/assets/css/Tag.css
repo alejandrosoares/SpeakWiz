@@ -1,0 +1,10 @@
+.Tag {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.Tag i {
+    display: inline-block;
+    margin-right: 4px;
+}

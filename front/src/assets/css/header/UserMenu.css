@@ -1,0 +1,41 @@
+.UserMenu {
+    --height: 112px;
+    width: 120px;
+    height: var(--height);   
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    background-color: var(--white);
+    position: absolute;
+    bottom: calc((var(--height) + 2px) * -1);
+    right: 0;
+    color: var(--dark);
+    font-size: var(--font-sm);
+    z-index: 100;
+}
+
+.UserMenu ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.UserMenu ul li {
+    padding: 6px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.UserMenu ul li button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.UserMenu ul li:hover {
+    font-weight: bold;
+}
+
+.UserMenu ul li:last-child {
+    border: none;
+} 

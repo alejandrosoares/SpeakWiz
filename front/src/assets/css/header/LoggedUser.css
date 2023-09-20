@@ -1,0 +1,13 @@
+.LoggedUser {
+  width: 60px !important;
+  height: 60px;
+  background-color: var(--black);
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  position: relative;
+  cursor: pointer;
+}

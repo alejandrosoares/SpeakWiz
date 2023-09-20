@@ -1,0 +1,30 @@
+.MyAccount {
+    border: 1px solid var(--border-div);
+    max-width: 600px !important;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.MyAccount div {
+    padding: 8px;
+}
+
+.MyAccount span {
+    display: block;
+    text-align: left;
+    color: var(--muted);
+}
+
+.MyAccount-field-value {
+    display: block;
+    width: 100% !important;
+    line-height: 28px;
+    margin: 12px auto;
+    border: none;
+    border-bottom: 1px solid var(--border-div);
+    opacity: .8;
+    padding-left: 6px;
+}

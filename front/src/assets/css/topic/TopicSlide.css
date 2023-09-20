@@ -1,0 +1,20 @@
+.swiper {
+  max-width: 800px !important;
+}
+
+.TopicSlide {
+  border: 1px solid var(--border-div);
+  border-radius: 10px;
+  height: 300px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.SlideCounter {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}

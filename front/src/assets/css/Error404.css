@@ -1,0 +1,22 @@
+.Error {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Error h2 {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.Error .btn-back {
+    background-color: var(--blue) !important;
+    color: var(--white) ;
+    padding: 12px;
+    border-radius: 12px;
+    display: block;
+}

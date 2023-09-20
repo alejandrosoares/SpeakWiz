@@ -1,0 +1,39 @@
+.Loader {
+  display: inline-block;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.Loader-Icon {
+    border: 5px dotted black;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: loader-anim 3s linear infinite;
+}
+
+.Loader_Section {
+  padding: 45px;
+}
+
+.Loader_Section .Loader-Icon {
+  width: 60px;
+  height: 60px;
+}
+
+.Loader_Btn .Loader-Icon {
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes loader-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+

@@ -1,0 +1,12 @@
+.UserSession-LoginIn,
+.UserSession-SignUp {
+  display: inline-block;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .UserSession {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}

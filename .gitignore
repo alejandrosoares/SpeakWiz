@@ -1,0 +1,16 @@
+# BACK
+**/venv
+**/__pycache__
+
+
+# FRONT
+**/node_modules
+**/coverage
+**/build
+
+# misc
+.DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
