@@ -1,0 +1,2 @@
+class EmptyTopicListException(Exception):
+    pass
