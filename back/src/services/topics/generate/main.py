@@ -63,7 +63,6 @@ class TopicGenerator:
     def __get_random_tag(self) -> str:
         tags = TopicTag.objects.all()
         tag = choice(tags)
-        print(tag)
         return tag
 
     def __validate_output(self, topic_output: TopicOutput):

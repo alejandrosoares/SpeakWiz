@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Topic, Card
+from .models import Card
 
 
-admin.site.register(Topic)
 admin.site.register(Card)
