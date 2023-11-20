@@ -3,6 +3,9 @@ from django.conf import settings
 import openai
 from langchain.llms import OpenAI
 
+# Change OpenAI for
+# from langchain.chat_models import ChatOpenAI`
+
 
 openai.api_key = settings.OPENAI_API_KEY
 

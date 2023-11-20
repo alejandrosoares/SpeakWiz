@@ -11,8 +11,8 @@ class Card(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    @classmethod
-    def create_cards_of_topic(cls, topic: Topic, questions: List[str]) -> None:
+    @staticmethod
+    def create_cards_of_topic(topic: Topic, questions: List[str]) -> None:
         for question in questions:
             Card.objects.create(topic=topic, question=question)
 

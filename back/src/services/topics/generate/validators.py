@@ -10,12 +10,12 @@ score = (<number_questions>  - <repeated_ratio>) / <number_questions>
 from typing import List
 
 from topics.models import Topic
-from .parser import TopicOutput
+from .parsers import TopicOutput
 
 
 class TopicGeneratorValidator:
 
-    THRESHOLD = 0.8
+    threshold = 0.8
 
     def __init__(self, topics: List[Topic], topic_output: TopicOutput) -> None:
         self.topics = topics
@@ -27,7 +27,7 @@ class TopicGeneratorValidator:
     def validate(self) -> bool:
         repeated_ratio = self.__get_repeated_ratio()
         score = (self.number_topics - repeated_ratio) / self.number_topics
-        return score >= self.cls.THRESHOLD
+        return score >= self.cls.threshold
     
     def __get_repeated_ratio(self) -> float:
         new_questions = set(self.topic_output.questions)
