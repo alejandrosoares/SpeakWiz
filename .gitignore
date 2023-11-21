@@ -1,7 +1,7 @@
 # BACK
 **/venv
 **/__pycache__
-
+**/celerybeat-schedule
 
 # FRONT
 **/node_modules
