@@ -27,7 +27,7 @@ frozenlist==1.4.0
 greenlet==2.0.2
 idna==3.4
 kombu==5.3.2
-langchain==0.0.298
+langchain==0.0.329
 langsmith==0.0.39
 Markdown==3.4.4
 marshmallow==3.20.1
