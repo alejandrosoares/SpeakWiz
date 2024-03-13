@@ -7,7 +7,7 @@ class TopicListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Topic
-        fields = ['id', 'title', 'enable', 'premium', 'description']
+        fields = ['id', 'title', 'enabled', 'premium', 'description']
 
 
 class TopicDetailSerializer(serializers.ModelSerializer):
