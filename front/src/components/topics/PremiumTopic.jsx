@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import '../../assets/css/topic/Topic.css';
 import { Col } from 'react-bootstrap';
 import Card from '../cards/Card';
-import PremiumTag from '../tags/PremiumTag';
+import TagList from '../tags/TagList';
 import { RedirectionContext } from '../../context/RedirectionContext';
 import { LoginModalContext } from '../../context/LoginModalContext';
 
@@ -24,13 +24,13 @@ function PremiumTopic({ topic }) {
       style={{ backgroundColor: topic.style.backgroundColor }}
     >
       <div>
-        <PremiumTag />
         <Card
           className="TopicCard"
           title={topic.title}
           description={topic.description}
           numberQuestions={topic.numberQuestions}
         />
+        <TagList topic={topic} />
       </div>
     </Col>
   );

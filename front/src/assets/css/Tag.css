@@ -1,7 +1,11 @@
+.TagList {
+    display: flex;
+    justify-content: start;
+}
+
 .Tag {
-    position: absolute;
-    top: 2px;
-    left: 2px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .Tag i {

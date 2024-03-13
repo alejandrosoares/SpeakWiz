@@ -31,14 +31,18 @@
 .Topic .card {
   background-color: transparent;
   border: none;
+  flex-grow: 1;
 }
 
 .Topic > a,
 .Topic > div {
   text-decoration: none;
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
+  
 }
 
 .TopicCard {
