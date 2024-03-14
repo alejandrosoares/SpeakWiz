@@ -192,3 +192,11 @@ CACHES = {
 # CELERY
 CELERY_RESULT_BACKEND = "django-db"
 CELERY_BROKER_URL = "redis://localhost:6379/0"
+
+
+# SERVICES
+SERVICES = {
+    "TOPIC_GENERATION" : {
+        "ENABLED": False,
+    }
+}
