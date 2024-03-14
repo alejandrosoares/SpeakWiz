@@ -33,7 +33,7 @@ function TopicSlider({ slides }) {
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={slide.id} className="TopicSlide" style={{ backgroundColor: colors[index] }}>
-          <SlideCounter slideNumber={() => getSlideNumber(index)} total={totalSlides} />
+          <SlideCounter slideNumber={getSlideNumber(index)} total={totalSlides} />
           <Row>
             <Col xs={12}>
               <span>{slide.question}</span>

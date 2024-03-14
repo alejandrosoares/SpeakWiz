@@ -1,7 +1,8 @@
 .Header {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 24px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Header a {
@@ -9,4 +10,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.LogoContainer a  {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .Header {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+  .LogoContainer a  {
+    justify-content: start;
+    padding-left: 32px;
+  }
 }

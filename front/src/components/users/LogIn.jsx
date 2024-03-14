@@ -58,7 +58,7 @@ function LogIn() {
     <Col xs={12} className="Form">
       <Row>
         <Col xs={12} className="Form-Title">
-          <h1>Log In FlashCard</h1>
+          <h1>Log In</h1>
         </Col>
         <Col xs={12}>
           <form onSubmit={onSubmitForm} ref={formRef}>

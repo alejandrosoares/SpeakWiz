@@ -9,6 +9,7 @@ import { AuthProvider } from '../context/AuthContext';
 import { LoginModalProvider } from '../context/LoginModalContext';
 import { RedirectionProvider } from '../context/RedirectionContext';
 import Header from './header/Header';
+import Footer from './footer/Footer';
 import Home from './Home';
 import TopicDetail from './topics/TopicDetail';
 import LogIn from './users/LogIn';
@@ -58,12 +59,13 @@ function AppUI() {
     <Container className="App" fluid="true">
       <Header />
       <Row className="App-container">
-        <Col lg={8}>
+        <Col lg={10}>
           <Row className="App-Page">
             <AppRoutes />
           </Row>
         </Col>
       </Row>
+      <Footer />
     </Container>
   );
 }

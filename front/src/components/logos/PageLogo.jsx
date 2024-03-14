@@ -1,12 +1,11 @@
 import React from 'react';
 import '../../assets/css/logos/PageLogo.css';
-import FlashLogoImage from '../../assets/images/flashCard.png';
+import LogoImage from '../../assets/images/logo.png';
 
 function PageLogo() {
   return (
     <div className="PageLogo">
-      <img src={FlashLogoImage} className="PageLogo-Image" alt="Logo" />
-      <span className="PageLogo-Title text-dark">FlashCard</span>
+      <img src={LogoImage} className="PageLogo-Image" alt="Logo" />
     </div>
   );
 }
