@@ -14,13 +14,12 @@ function Header() {
   return (
     <header className="Header">
       <Row>
-        <Col xs={6} lg={2}>
+        <Col xs={authContext.user ? 6 : 12} md={9} className="LogoContainer">
           <Link to="/">
             <PageLogo />
           </Link>
         </Col>
-        <Col lg={7} className="d-none d-lg-block" />
-        <Col xs={6} lg={2} className="UserSession">
+        <Col xs={authContext.user ? 6 : 12} md={3} className="UserSession">
           { authContext.user ? <LoggedUser /> : <AnonymousUser /> }
         </Col>
       </Row>

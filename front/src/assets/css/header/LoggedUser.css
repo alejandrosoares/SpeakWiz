@@ -10,4 +10,14 @@
   font-size: 2rem;
   position: relative;
   cursor: pointer;
+
+}
+
+.UserSession a {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.UserSession a button {
+  width: 100%;
 }

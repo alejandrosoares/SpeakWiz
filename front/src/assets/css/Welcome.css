@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 .Welcome {
   margin-top: 50px;
@@ -6,13 +7,26 @@
   color: var(--dark);
 }
 
+.WelcomeTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
 .Welcome h1 {
-  font-family: "Edu SA Beginner", cursive;
-  font-size: 3rem;
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 6em;
+  color: #658C5E;
 }
 
 .Welcome h2 {
-  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3.12em;
 }
 
 .Welcome-Image {

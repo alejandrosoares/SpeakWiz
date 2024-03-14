@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 function AnonymousUser() {
   return (
-    <Row>
+    <Row className="AnonymousUser">
       <Col>
-        <Link to="/log-in" className="UserSession-Login">
-          <Button variant="link">Log In</Button>
+        <Link to="/log-in" className="UserSession-Login ">
+          <Button variant="outline-dark">Log In</Button>
         </Link>
       </Col>
       <Col>

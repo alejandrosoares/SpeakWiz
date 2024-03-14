@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
+import { Button, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/css/Form.css';
-import { Button, Row, Col } from 'react-bootstrap';
+import PASSWORD_REGEX from '../../utils/constants/regexs';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import LOCAL_STORAGE from '../../utils/constants/localstorage';
 import userApi from '../../apis/userApi';
@@ -51,7 +52,7 @@ function SignUp() {
     <Col xs={12} className="Form">
       <Row>
         <Col xs={12} className="Form-Title">
-          <h1>Sign Up FlashCard</h1>
+          <h1>Sign Up</h1>
         </Col>
         <Col xs={12}>
           <form onSubmit={onSubmitForm} ref={formRef}>
@@ -69,7 +70,7 @@ function SignUp() {
                 type="password"
                 name="password"
                 required
-                placeholder="Password"
+                placeholder={PASSWORD_REGEX}
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number, one uppercase and lowercase letter. At least 8 or more characters."
               />
