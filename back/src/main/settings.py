@@ -62,7 +62,8 @@ OWN_APPS = [
     'cards',
     'users',
     'preferences',
-    'favorites'
+    'favorites',
+    'languages',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + DRF_APPS + OWN_APPS
