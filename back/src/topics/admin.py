@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Topic, TopicTag
+from .models import Topic, TopicTag, TopicTranslation
 
 
 class TopicAdmin(admin.ModelAdmin):
@@ -13,4 +13,5 @@ class TopicTagAdmin(admin.ModelAdmin):
 
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(TopicTag, TopicTagAdmin)
+admin.site.register(TopicTranslation)
 
