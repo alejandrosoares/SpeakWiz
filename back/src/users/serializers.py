@@ -32,7 +32,14 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'initialName', 'email', 'joined')
 
 
-class UserLoginSerializer(UserSerializer):
+class LoginRequestSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('email', 'password')
+
+
+class LoginResponseSerializer(UserSerializer):
 
     token = serializers.SerializerMethodField('get_auth_token')
 
