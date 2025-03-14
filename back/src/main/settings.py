@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
 DRF_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 OWN_APPS = [
@@ -166,7 +167,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 
@@ -240,4 +241,22 @@ LOGGING = {
             "propagate": False,
         },
     }
+}
+
+
+# SPECTACULAR SETTINGS
+SPECTACULAR_SETTINGS = {
+    "TITLE": "SpeakWiz API",
+    "DESCRIPTION": "API documentation for the SpeakWiz project.",
+    "VERSION": "1.0.0",
+    "CONTACT": {
+        "name": "Support Team",
+        "email": "support@speakwiz.com",
+        "url": "https://speakwiz.com/contact/",
+    },
+    "LICENSE": {
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    },
+    "SCHEMA_PATH_PREFIX": "/api/",  # Optional: remove common URL prefixes
 }
