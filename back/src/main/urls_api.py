@@ -6,5 +6,4 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('preferences/', include('preferences.urls')),
     path('favorites/', include('favorites.urls')),
-
 ]

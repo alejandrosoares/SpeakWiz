@@ -59,11 +59,14 @@ DRF_APPS = [
 
 OWN_APPS = [
     'topics',
-    'cards',
     'users',
     'preferences',
     'favorites',
     'languages',
+
+    # LLM
+    'llm_settings',
+    'topic_generator',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + DRF_APPS + OWN_APPS
@@ -199,5 +202,42 @@ CELERY_BROKER_URL = "redis://localhost:6379/0"
 SERVICES = {
     "TOPIC_GENERATION" : {
         "ENABLED": False,
+    }
+}
+
+
+# LOGGING
+LOGGING = {
+    "version": 1, 
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file_general": {
+            "class": "logging.FileHandler",
+            "filename": "../logs/general.log",
+            "formatter": "verbose",
+        },
+        "file_topic_generator": {
+            "class": "logging.FileHandler",
+            "filename": "../logs/topic_generator.log",
+            "formatter": "verbose",
+        },
+    },
+    "formatters": {
+        "verbose": {
+            "format": "{asctime} {name} {levelname} {module} {message}",
+            "style": "{",
+        },
+    },
+    "loggers": {
+        "django": {
+            "level": "DEBUG",
+            "handlers": ["file_general"],
+            "propagate": True,
+        },
+        "topic_generator": {
+            "level": "DEBUG",
+            "handlers": ["file_topic_generator"],
+            "propagate": False,
+        },
     }
 }
