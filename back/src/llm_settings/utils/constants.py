@@ -1,0 +1,1 @@
+SIMPLE_CURLY_BRACKETS_REGEX = r"(?<!{){([^{}]+)}(?!})"

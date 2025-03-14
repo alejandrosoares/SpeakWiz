@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import LLMModel, Prompt, LLMSetup
+from .models import LLMModel, Prompt, SetupEvaluation
 
 
 admin.site.register(LLMModel)
 admin.site.register(Prompt)
-admin.site.register(LLMSetup)
+admin.site.register(SetupEvaluation)
