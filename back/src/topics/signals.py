@@ -1,23 +1,31 @@
-from django.db.models.signals import m2m_changed
+from django.db.models.signals import post_save, pre_save, post_delete
 from django.dispatch import receiver
 
-from services.topics.translation import TopicTranslator
-from .models import TopicTranslation, TopicTag
+from topic_generator.implementations import translate_topic
+from .models import Topic
 
 
-@receiver(m2m_changed, sender=TopicTag.topics.through)
-def m2m_changed_topic_tags(sender, instance, action, **kwargs):
-    number_topics_changed = kwargs.get('pk_set')
-    if action == "post_add":
-        instance.number_topics += len(number_topics_changed) 
-    elif action == "post_remove":
-        instance.number_topics -= len(number_topics_changed)
-    instance.save()
+@receiver(pre_save, sender=Topic)
+def pre_save_topic(sender, instance, **kwargs):
+    try:
+        previous_instance = sender.objects.get(pk=instance.pk)
+    except Topic.DoesNotExist:
+        previous_instance = None
+    else:
+        is_enabled = not previous_instance.is_enabled and instance.is_enabled
+        is_root = instance.reference is None
+        was_not_translated = sender.objects.filter(reference=instance).count() == 0
+        is_translatable = is_enabled and is_root and was_not_translated
+        if is_translatable:
+            translate_topic(instance)
+
+        
+@receiver(post_save, sender=Topic)
+def post_save_topic(sender, instance, created, **kwargs):
+    if created:
+        instance.tag.increase_number_topics()
 
 
-@receiver(m2m_changed, sender=TopicTranslation.languages.through)
-def m2m_changed_topic_translation(sender, instance, action, **kwargs):
-    if action == "post_add":
-        for lang in instance.languages.all():
-            translator = TopicTranslator(instance.topic, lang)
-            translator.translate_and_save()
+@receiver(post_delete, sender=Topic)
+def post_delete_topic(sender, instance, **kwargs):
+    instance.tag.decrease_number_topics()
