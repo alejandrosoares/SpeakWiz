@@ -70,8 +70,8 @@ function SignUp() {
                 type="password"
                 name="password"
                 required
-                placeholder={PASSWORD_REGEX}
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                placeholder="Password"
+                pattern={PASSWORD_REGEX}
                 title="Must contain at least one number, one uppercase and lowercase letter. At least 8 or more characters."
               />
             </label>

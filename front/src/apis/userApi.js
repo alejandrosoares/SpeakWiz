@@ -7,7 +7,7 @@ const userApi = {
   URL: `${API_URL}users/`,
 
   async signUp(data) {
-    const req = new Request.Builder(`${this.URL}sign-up/`)
+    const req = new Request.Builder(`${this.URL}signup/`)
       .withBody(data)
       .withPostMethod()
       .build();
@@ -16,7 +16,7 @@ const userApi = {
   },
 
   async logIn(data) {
-    const req = new Request.Builder(`${this.URL}log-in/`)
+    const req = new Request.Builder(`${this.URL}login/`)
       .withBody(data)
       .withPostMethod()
       .build();
@@ -25,7 +25,7 @@ const userApi = {
   },
 
   async getUserByToken() {
-    const req = new Request.Builder(`${this.URL}get-user/`)
+    const req = new Request.Builder(`${this.URL}profile/`)
       .withAuthentication()
       .build();
     const res = await req.send();
