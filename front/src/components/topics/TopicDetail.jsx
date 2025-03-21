@@ -5,8 +5,6 @@ import { useLocation, useParams } from 'react-router-dom';
 import { RedirectionContext } from '../../context/RedirectionContext';
 import { AuthContext } from '../../context/AuthContext';
 import TopicSlider from './TopicSlider';
-import addRandomColorsTo from '../../utils/colors/addRandomColorsTo';
-import cardApi from '../../apis/cardApi';
 import topicApi from '../../apis/topicApi';
 import Feedback from '../feedback/Feedback';
 import { ResourceType } from '../../utils/feedback';
@@ -17,29 +15,25 @@ function TopicDetail() {
   const redirectionContext = useContext(RedirectionContext);
   const authContext = useContext(AuthContext);
   const { id: topicId } = useParams();
-  const [stateCards, setCards] = useState([]);
+  const [stateQuestions, setQuestions] = useState([]);
   const [topic, setTopic] = useState(location.state || redirectionContext.resource);
 
   useEffect(() => {
-    async function loadingCards() {
-      if (!topic) {
+    async function loadingQuestions() {
+      try {
         const res = await topicApi.getById(topicId);
-        setTopic(res.data);
-      } else {
-        loadCards();
+        const topicDetail = res.data;
+        const questions = topicDetail.questions.map((question, id) => ({ question, id }));
+        console.log('questions:', questions);
+        setTopic(topicDetail);
+        setQuestions(questions);
+      } catch (error) {
+        console.log('Error fetching topic details: ', error);
       }
     }
-    loadingCards();
+    loadingQuestions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [topic]);
-
-  const loadCards = async () => {
-    const authIsNeeded = topic.premium;
-    const res = await cardApi.getAll(topic.id, authIsNeeded);
-    const cards = res.data;
-    const cardsWithColor = addRandomColorsTo(cards);
-    setCards(cardsWithColor);
-  };
+  }, [topicId]);
 
   return (
     <>
@@ -55,7 +49,7 @@ function TopicDetail() {
           <h2 className="TopicDetail-Description text-muted">{topic?.description}</h2>
         </Col>
         <Col xs={12}>
-          <TopicSlider slides={stateCards} />
+          <TopicSlider slides={stateQuestions} />
         </Col>
       </Row>
       {authContext.user && topic && <Feedback resourceType={ResourceType.Topic} resource={topic} />}
