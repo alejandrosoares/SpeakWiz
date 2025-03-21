@@ -34,3 +34,5 @@ langchain==0.3.20
 langchain-community==0.3.19
 drf-spectacular==0.28.0
 drf-spectacular-sidecar==2025.3.1
+openai==1.68.0
+langchain-openai==0.3.9
