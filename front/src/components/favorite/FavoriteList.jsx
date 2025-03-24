@@ -20,11 +20,19 @@ function FavoriteList() {
     const res = await favoritesApi.getAll();
     if (!res.error) {
       const resources = res.data;
-      const resourcesWithColors = addRandomColorsTo(resources);
+      if (resources.length === 0) {
+        setLoading(false);
+        return;
+      }
+      const resourceData = preProcessResourceResponse(resources);
+      console.log('resourceData: ', resourceData);
+      const resourcesWithColors = addRandomColorsTo(resourceData);
       setFavoriteList(resourcesWithColors);
       setLoading(false);
     }
   };
+
+  const preProcessResourceResponse = (resources) => resources.map((resource) => resource.data)[0];
 
   return (
     <>
