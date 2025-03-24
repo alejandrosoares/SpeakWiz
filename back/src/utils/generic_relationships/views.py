@@ -1,23 +1,14 @@
 from rest_framework.views import APIView
 from django.contrib.contenttypes.models import ContentType
 
-from json import loads
-from json.decoder import JSONDecodeError
+import json
 
-from utils.models.generics import ENABLED_RESOURCE_MODELS
+from utils.generic_relationships.models import ENABLED_RESOURCE_MODELS
 from utils.response import (
     JsonResponseOk,
     JsonResponseCreated,
     JsonResponseBadRequest
 )
-
-
-def get_data_from(request_body: bytes) -> dict:
-    """Deserializes request body.
-    JSONDecodeError is raised if this method cannot deserialize the argument.
-    """
-    data = loads(request_body)
-    return data
 
 
 class GenericModelView(APIView):
@@ -61,11 +52,11 @@ class GenericModelView(APIView):
 
     def post(self, request):
         try:
-            data = get_data_from(request.body)
+            data = json.loads(request.body)
             resource_type = data.get('resourceType')
             resource_id = data.get('resourceId')
             resource_obj = self.__get_resource_obj(resource_type, resource_id)
-        except (JSONDecodeError, ValueError, AttributeError):
+        except (json.decoder.JSONDecodeError, ValueError, AttributeError):
             response = JsonResponseBadRequest()
         else:
             generic_obj = self.__create_or_active_existent(resource_obj, request.user)
