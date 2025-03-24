@@ -55,15 +55,19 @@ THIRD_PARTY_APPS = [
 DRF_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 OWN_APPS = [
     'topics',
-    'cards',
     'users',
     'preferences',
     'favorites',
     'languages',
+
+    # LLM
+    'llm_settings',
+    'topic_generator',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + DRF_APPS + OWN_APPS
@@ -163,7 +167,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 
@@ -200,4 +204,59 @@ SERVICES = {
     "TOPIC_GENERATION" : {
         "ENABLED": False,
     }
+}
+
+
+# LOGGING
+LOGGING = {
+    "version": 1, 
+    "disable_existing_loggers": False,
+    "handlers": {
+        "file_general": {
+            "class": "logging.FileHandler",
+            "filename": "../logs/general.log",
+            "formatter": "verbose",
+        },
+        "file_topic_generator": {
+            "class": "logging.FileHandler",
+            "filename": "../logs/topic_generator.log",
+            "formatter": "verbose",
+        },
+    },
+    "formatters": {
+        "verbose": {
+            "format": "{asctime} {name} {levelname} {module} {message}",
+            "style": "{",
+        },
+    },
+    "loggers": {
+        "django": {
+            "level": "DEBUG",
+            "handlers": ["file_general"],
+            "propagate": True,
+        },
+        "topic_generator": {
+            "level": "DEBUG",
+            "handlers": ["file_topic_generator"],
+            "propagate": False,
+        },
+    }
+}
+
+
+# SPECTACULAR SETTINGS
+SPECTACULAR_SETTINGS = {
+    "TITLE": "SpeakWiz API",
+    "DESCRIPTION": "API documentation for the SpeakWiz project.",
+    "VERSION": "1.0.0",
+    "CONTACT": {
+        "name": "Support Team",
+        "email": "support@speakwiz.com",
+        "url": "https://speakwiz.com/contact/",
+    },
+    "LICENSE": {
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    },
+    "SCHEMA_PATH_PREFIX": "/api/",  # Optional: remove common URL prefixes
 }

@@ -6,6 +6,7 @@ import SectionLoader from '../loaders/SectionLoader';
 import favoritesApi from '../../apis/favoritesApi';
 import addRandomColorsTo from '../../utils/colors/addRandomColorsTo';
 import SectionTitle from '../titles/SectionTitle';
+import FavoriteEmptyList from './FavoriteEmptyList';
 
 function FavoriteList() {
   const [favoriteList, setFavoriteList] = useState([]);
@@ -18,18 +19,28 @@ function FavoriteList() {
   const loadFavorites = async () => {
     const res = await favoritesApi.getAll();
     if (!res.error) {
-      const resources = res.data[0];
-      const resourcesWithColors = addRandomColorsTo(resources);
+      const resources = res.data;
+      if (resources.length === 0) {
+        setLoading(false);
+        return;
+      }
+      const resourceData = preProcessResourceResponse(resources);
+      console.log('resourceData: ', resourceData);
+      const resourcesWithColors = addRandomColorsTo(resourceData);
       setFavoriteList(resourcesWithColors);
       setLoading(false);
     }
   };
+
+  const preProcessResourceResponse = (resources) => resources.map((resource) => resource.data)[0];
 
   return (
     <>
       <SectionTitle title="My Favorites" />
 
       {loading && <SectionLoader color="black" />}
+
+      {!loading && favoriteList.length === 0 && <FavoriteEmptyList />}
 
       <Row className="TopicList">
         {favoriteList?.map((topic) => <LinkTopic topic={topic} key={topic.id} />)}

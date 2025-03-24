@@ -1,10 +1,9 @@
-from rest_framework.views import APIView
+import json
+
 from django.http.response import JsonResponse
+from rest_framework.views import APIView
 from rest_framework import status
 
-from json.decoder import JSONDecodeError
-
-from utils.views import get_data_from
 from .models import UserPreference
 from .serializers import UserPreferenceSerializer
 from .utils import (
@@ -22,11 +21,11 @@ class UserPreferenceView(APIView):
 
     def post(self, request):
         try:
-            data = get_data_from(request.body)
+            data = json.loads(request.body)
             model = get_enabled_model_from(data.get('resourceType'))
             resource = model.objects.get(id=data.get('resourceId'))
             feedback = data.get('resourceValue')
-        except (JSONDecodeError, ValueError, AttributeError):
+        except (json.decoder.JSONDecodeError, ValueError, AttributeError):
             return JsonResponse(
                 'BAD_REQUEST',
                 status=status.HTTP_400_BAD_REQUEST,
